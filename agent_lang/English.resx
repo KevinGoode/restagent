@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CORE_ERROR_ACCESS_TOKEN" xml:space="preserve">
+    <value>Invalid service access token.</value>
+  </data>
+  <data name="CORE_ERROR_ARRAY_EMPTY" xml:space="preserve">
+    <value>{0} list  is empty</value>
+  </data>
+  <data name="CORE_ERROR_EXPIRED_TOKEN" xml:space="preserve">
+    <value>Authentication tokne has expired</value>
+  </data>
+  <data name="CORE_ERROR_FAILED_TO_RETRIEVE_CLIENT_IP" xml:space="preserve">
+    <value>The server failed to retrieve the client's ip address.</value>
+  </data>
+  <data name="CORE_ERROR_GENERAL_EXCEPTION" xml:space="preserve">
+    <value>General error: {0}</value>
+  </data>
+  <data name="CORE_ERROR_GET_SID_FAILED" xml:space="preserve">
+    <value>Failed to retrieve the machine SID.</value>
+  </data>
+  <data name="CORE_ERROR_INVALID_USR_CREDENTIAL" xml:space="preserve">
+    <value>Authentication failed, please verify interface server credentials are correct.</value>
+  </data>
+  <data name="CORE_ERROR_JSON_EXTRA_MEMBER" xml:space="preserve">
+    <value>Invalid request packet. Found unexpected parameter : '{0}' in object '{1}' at line {2} position {3}.</value>
+  </data>
+  <data name="CORE_ERROR_JSON_MEMBER_TYPE" xml:space="preserve">
+    <value>Invalid request packet. Failed to convert '{0}' in object '{1}' at line {2} position {3}.</value>
+  </data>
+  <data name="CORE_ERROR_JSON_MISSING_MEMBER" xml:space="preserve">
+    <value>Invalid request packet. Missing expected parameter : '{0}' from object '{1}' at line {2} position {3}.</value>
+  </data>
+  <data name="CORE_ERROR_JSON_SYNTAX" xml:space="preserve">
+    <value>Invalid request packet. JSON syntax error at line {0} position {1}.</value>
+  </data>
+  <data name="CORE_ERROR_JSON_UNREGISTERED" xml:space="preserve">
+    <value>Invalid request packet. Unregistered error.</value>
+  </data>
+  <data name="CORE_ERROR_PARAMS_VALIDATION" xml:space="preserve">
+    <value>Incorrect parameters provided for requested operation.</value>
+  </data>
+  <data name="CORE_ERROR_REG_OPEN" xml:space="preserve">
+    <value> Error opening  windows registry used  for Web service.Please verify the installation.</value>
+  </data>
+  <data name="CORE_ERROR_RMCE_INSTALLATION" xml:space="preserve">
+    <value>Error getting installation path</value>
+  </data>
+  <data name="CORE_ERROR_RMC_ALREADY_REGISTERED" xml:space="preserve">
+    <value>RMC device already configured for IP address {0}. Send parameter forceRegister=true to override this configuration.</value>
+  </data>
+  <data name="CORE_ERROR_RMC_NOT_FOUND" xml:space="preserve">
+    <value>RMC appliance not found on server [{0}].</value>
+  </data>
+  <data name="CORE_ERROR_RMC_RESOURCE_NOT_FOUND" xml:space="preserve">
+    <value>RMC resource {0} could not be found.</value>
+  </data>
+  <data name="CORE_ERROR_STARTING_SERVICE" xml:space="preserve">
+    <value>Failed to start the service. Error: {0}</value>
+  </data>
+  <data name="CORE_ERROR_STRING_EMPTY" xml:space="preserve">
+    <value>{0} string is empty</value>
+  </data>
+  <data name="CORE_ERROR_UNAUTH_ACCESS" xml:space="preserve">
+    <value>Unauthorized access.</value>
+  </data>
+  <data name="CORE_ERROR_UNDEFINED" xml:space="preserve">
+    <value>Unknown internal error occurred. Please verify the log.</value>
+  </data>
+  <data name="CORE_ERROR_URI_NOT_FOUND" xml:space="preserve">
+    <value>URI {0} not found.</value>
+  </data>
+  <data name="CORE_ERROR_WRONG_CONTENT_TYPE" xml:space="preserve">
+    <value>Unsupported media type. Content-Type request header must be set to application/json.</value>
+  </data>
+  <data name="CORE_ERROR_X_AUTH_TOKEN" xml:space="preserve">
+    <value>Authentication failed. Please pass a valid token in the X-Auth-Token header.</value>
+  </data>
+  <data name="CORE_INFO_SERVICE_STARTED" xml:space="preserve">
+    <value>Service successfully started at {0}</value>
+  </data>
+  <data name="CORE_INFO_SERVICE_STOPPED" xml:space="preserve">
+    <value>Service successfully stopped</value>
+  </data>
+  <data name="VSS_ERROR_FAILED_TO_CREATE_SNAPSHOT" xml:space="preserve">
+    <value>Failed to create snapshot</value>
+  </data>
+  <data name="VSS_ERROR_FAILED_TO_MOUNT_SNAPSHOT" xml:space="preserve">
+    <value>Failed to mount snapshot with Id {0}</value>
+  </data>
+  <data name="VSS_ERROR_FAILED_TO_READ_SNAPSHOT_ID" xml:space="preserve">
+    <value>Failed to read snapshot id</value>
+  </data>
+  <data name="VSS_ERROR_FAILED_TO_READ_SNAPSHOT_XML" xml:space="preserve">
+    <value>Failed to read snaphot xml</value>
+  </data>
+  <data name="VSS_ERROR_FAILED_TO_UNMOUNT_SNAPSHOT" xml:space="preserve">
+    <value>Failed to unmount snapshot with Id {0}</value>
+  </data>
+  <data name="RMC_VSS_ACCESS_DENIED" xml:space="preserve">
+    <value>Access Denied</value>
+    <comment>Since the RMC VSS Requester is called from client this error should never been seen: Call customer support.</comment>
+  </data>
+  <data name="RMC_VSS_BAD_PARAMETER" xml:space="preserve">
+    <value>Parameter error :  {0}</value>
+    <comment>The message includes details of the parameter and how to rectify the issue.</comment>
+  </data>
+  <data name="RMC_VSS_FAILED_TO_CREATE_MOUNTPOINT" xml:space="preserve">
+    <value>An error occured when attempting to create the mount point : {0}</value>
+    <comment>Check the system for errors as to why the mount point folder could not be created.</comment>
+  </data>
+  <data name="RMC_VSS_HW_PROVIDER_ERROR" xml:space="preserve">
+    <value>VSS HW Provider reported an error.</value>
+    <comment>Check the VSS HW Provider logs as to the cause of the error.</comment>
+  </data>
+  <data name="RMC_VSS_IMPORT_FAILED" xml:space="preserve">
+    <value>The VSS failed to import the snapshot</value>
+    <comment>Check the VSS logs as to the cause of the error.</comment>
+  </data>
+  <data name="RMC_VSS_INTERNAL_ERROR" xml:space="preserve">
+    <value>Internal Error. Please check VSS Logs</value>
+    <comment>Check the VSS logs as to the cause of the error.</comment>
+  </data>
+  <data name="RMC_VSS_INVALID_VOLUME" xml:space="preserve">
+    <value>The volume is invalid or does not exist : {0}</value>
+    <comment>Check that the specifid volume is a valid volume.</comment>
+  </data>
+  <data name="RMC_VSS_MOUNTPOINT_NOT_EMPTY" xml:space="preserve">
+    <value>The mount point must be empty  in order to mount a volume: {0}</value>
+    <comment>In order to mount the snapshot to a folder the folder must be empty. If the folder exists check that folder is empty.</comment>
+  </data>
+  <data name="RMC_VSS_NO_SNAPSHOTS_FOUND" xml:space="preserve">
+    <value>No snapshot sets were found</value>
+    <comment>Check that the specified snapshot set exists.</comment>
+  </data>
+  <data name="RMC_VSS_NO_VSS_VOLUMES_ASSOCIATED_WITH_APP" xml:space="preserve">
+    <value>The application uses a volume that is not specified </value>
+    <comment>Ensure all volumes that the application use are included to be snapshotted.</comment>
+  </data>
+  <data name="RMC_VSS_REBOOT_REQUIRED" xml:space="preserve">
+    <value>The VSS HW Provider encountered an error that requires the user to restart the computer.</value>
+    <comment>Restart the system before repeating the operation.</comment>
+  </data>
+  <data name="RMC_VSS_REBOOT_REQUIRED_TO_COMPLETE_UNMOUNT" xml:space="preserve">
+    <value>The system must be restarted to complete the unmount operation</value>
+    <comment>The operating system could not complete the unistallation of one or more of the volumes.  Restart the system to complete the unistallation.</comment>
+  </data>
+  <data name="RMC_VSS_SNAPSHOT_IN_PROGRESS" xml:space="preserve">
+    <value>The creation of a shadow copy is already in progress</value>
+    <comment>Wait until the current operation is complete and reinitiate the snapshot.</comment>
+  </data>
+  <data name="RMC_VSS_SNAPSHOT_SET_NOT_FOUND" xml:space="preserve">
+    <value>The specified snapshot set could not be found</value>
+    <comment>Check that the specified snapshot set exists.</comment>
+  </data>
+  <data name="RMC_VSS_SQL_SYSTEM_DATABASE_NOT_INCLUDED" xml:space="preserve">
+    <value>The SQLSystem Databases were not included in the snapshot set</value>
+    <comment>SQL Server maintains a set of system-level databases, system databases, which are essential for the operation of a server instance. Several of the system databases must be backed up after every significant update. Backups of these system databases let you restore and recover the SQL Server system in the event of system failure, such as the loss of a hard disk.</comment>
+  </data>
+  <data name="RMC_VSS_UNMOUNT_FAILED" xml:space="preserve">
+    <value>An error occured when attempting to unmount the snapshot set.</value>
+    <comment>Check the system and VSS logs for a reason why the unmount operation failed.</comment>
+  </data>
+  <data name="RMC_VSS_UNSPECIFIED_VOLUME" xml:space="preserve">
+    <value>The application uses a volume that is not specified : {0}</value>
+    <comment>Ensure all volumes that the application use are included to be snapshotted.</comment>
+  </data>
+  <data name="RMC_VSS_VOLUME_NOT_USED" xml:space="preserve">
+    <value>The volume is not used by the application : {0}</value>
+    <comment>Ensure that only volumes used by the application use are included to be snapshotted.</comment>
+  </data>
+  <data name="RMC_VSS_WRITER_STATE" xml:space="preserve">
+    <value>The VSS Writer is in an error state {0}</value>
+    <comment>Check the state of the VSS Writer using, for example, vssadmin.exe.</comment>
+  </data>
+  <data name="RMC_VSS_NO_VSS_COMPONENTS_FOUND" xml:space="preserve">
+    <value>No VSS Components could be found for the specified application</value>
+    <comment>Check that the application details are correct.</comment>
+  </data>
+  <data name="RMC_VSS_NO_VSS_WRITER_FOUND" xml:space="preserve">
+    <value>Could not find the VSS Writer associated with the application</value>
+    <comment>Check that the appropriate VSS Writer is installed.</comment>
+  </data>
+  <data name="RMC_VSS_PROVIDER_NOT_REGISTERED" xml:space="preserve">
+    <value>The "VSS Provider" is not registered.</value>
+    <comment>Check that the VSS Provider is installed and is in a healthy state.</comment>
+  </data>
+  <data name="RMC_VSS_MOUNTPOINT_NOT_VALID" xml:space="preserve">
+    <value>The snapshot mount point is not a directory {0}</value>
+    <comment>The specified mount point must be an empty folder. Delete the file and retry mounting.</comment>
+  </data>
+  <data name="CORE_ERROR_TASK_NOT_FOUND" xml:space="preserve">
+    <value>Failed to retrieve requested task with guid {0}</value>
+  </data>
+  <data name="CORE_ERROR_DELETE_RUNNING_TASK" xml:space="preserve">
+    <value>Can't delete the task with guid {0}, because it is still running</value>
+  </data>
+  <data name="CORE_ERROR_TASK_RESULT_NOT_FOUND" xml:space="preserve">
+    <value>Failed to retrieve requested task result with guid {0}</value>
+  </data>
+  <data name="RMC_VSS_DISK_NOT_FOUND" xml:space="preserve">
+    <value>Could not find one ore more disks with specified WWNs</value>
+    <comment>Check that the WWNs are correct.</comment>
+  </data>
+  <data name="RMC_VSS_VOLUME_NOT_FOUND" xml:space="preserve">
+    <value>Could not find one ore more volumes with specified WWNs</value>
+    <comment>Check that the WWNs are correct.</comment>
+  </data>
+  <data name="CORE_ERROR_TASK_UNEXPECTED_ERROR" xml:space="preserve">
+    <value>The task with guid {0} has thrown an unexpected error</value>
+  </data>
+  <data name="RMC_EXCHANGE_VERSION_NOT_FOUND" xml:space="preserve">
+    <value>Failed to retrieve the exchange version, maybe it is not installed.</value>
+  </data>
+  <data name="VSS_ERROR_RELEASE_VOLUMES_FAILED" xml:space="preserve">
+    <value>Failed to release volumes with Ids {0}</value>
+    <comment>Couldn't release the given volumes (wwns)</comment>
+  </data>
+  <data name="CORE_ERROR_FAILED_TO_RETURN_FILE" xml:space="preserve">
+    <value>Failed to return the reporting file, couldn't read it.</value>
+  </data>
+  <data name="CORE_ERROR_FAILED_TO_ZIP_REPORT" xml:space="preserve">
+    <value>Failed to zip the report.</value>
+  </data>
+  <data name="FCR_EMPTY_LOG_PATH" xml:space="preserve">
+    <value>Failed to provide a log path</value>
+  </data>
+  <data name="FCR_EMPTY_LOG_PREFIX" xml:space="preserve">
+    <value>Failed to provide a log prefix</value>
+  </data>
+  <data name="FCR_EMPTY_MDB_GUID" xml:space="preserve">
+    <value>Failed to provide a mailbox database GUID</value>
+  </data>
+  <data name="FCR_EMPTY_MDB_PATH" xml:space="preserve">
+    <value>Failed to provide a mailbox database file path</value>
+  </data>
+  <data name="FCR_EMPTY_RESTORE_LEVEL" xml:space="preserve">
+    <value>Failed to provide a restore level</value>
+  </data>
+  <data name="FCR_EMPTY_SUPPLEMENTAL_LOG_PATH" xml:space="preserve">
+    <value>Failed to provide a supplement log file path</value>
+  </data>
+  <data name="FCR_INVALID_RESTORE_LEVEL" xml:space="preserve">
+    <value>Provide restore level value was invalid</value>
+  </data>
+  <data name="RMC_EXCHANGE_MAILBOX_DATABASE_ACTIVE" xml:space="preserve">
+    <value>Cannot complete request on an active database copy</value>
+  </data>
+  <data name="RMC_EXCHANGE_MAILBOX_DATABASE_NOT_IN_DAG" xml:space="preserve">
+    <value>Database is not part of an availability group</value>
+  </data>
+  <data name="RMC_EXCHANGE_MAILBOX_DATABASE_GUID_NOT_PROVIDED" xml:space="preserve">
+    <value>Did not provide mailbox database GUID</value>
+  </data>
+  <data name="RMC_EXCHANGE_REQUEST_FORMAT_INVALID" xml:space="preserve">
+    <value>Request body missing top level object</value>
+  </data>
+  <data name="RMC_EXCHANGE_MAILBOX_DATABASE_NOT_FOUND" xml:space="preserve">
+    <value>Could not find Exchange mailbox database on local server</value>
+  </data>
+  <data name="RMC_EXCHANGE_MAILBOX_DATABASE_OPERATION_FAILED" xml:space="preserve">
+    <value>Operation on Exchange mailbox database failed</value>
+  </data>
+  <data name="RMC_VSS_HARDWARE_RESCAN_FAILED" xml:space="preserve">
+    <value>Failed to scan for new hardware</value>
+  </data>
+  <data name="RMC_EMS_ERROR_COULD_NOT_OPEN" xml:space="preserve">
+    <value>Failed to open Exchange management shell session</value>
+  </data>
+  <data name="RMC_VSS_RESCAN_TIMEOUT" xml:space="preserve">
+    <value>Timed out whilst polling for hardware change</value>
+  </data>
+  <data name="RMC_VSS_FAILED_TO_OFFLINE_VOLUME" xml:space="preserve">
+    <value>Failed to bring one or more partitions offline</value>
+  </data>
+  <data name="RMC_VSS_FAILED_TO_ONLINE_VOLUME" xml:space="preserve">
+    <value>Faile to braing one or more partitions online</value>
+  </data>
+  <data name="RMC_POWERSHELL_ERROR" xml:space="preserve">
+    <value>Encountered error when trying to run Powershell command</value>
+  </data>
+  <data name="ISCSI_EMPTY_ID" xml:space="preserve">
+    <value>Failed to provide an iSCSI target ID</value>
+  </data>
+  <data name="ISCSI_EMPTY_TARGET_NAME" xml:space="preserve">
+    <value>Failed to provide an iSCSItarget name</value>
+  </data>
+  <data name="ISCSI_EMPTY_WWN" xml:space="preserve">
+    <value>Failed to provide an iSCSI WWN</value>
+  </data>
+  <data name="ISCSI_TARGET_NOT_FOUND" xml:space="preserve">
+    <value>Target not found</value>
+  </data>
+  <data name="ISCSI_VOLUME_NOT_FOUND" xml:space="preserve">
+    <value>Volume not found</value>
+  </data>
+  <data name="EXTRA_GUFF" xml:space="preserve">
+    <value>Guff not found</value>
+  </data>
+</root>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+<ItemGroup>
+<ProjectReference Include="../agent_lang/agent_lang.csproj">
+      <Name>agent_lang</Name>
+    </ProjectReference>
+<ProjectReference Include="../agent_lib/agent_lib.csproj">
+      <Name>agent_lib</Name>
+    </ProjectReference>
+</ItemGroup>
+<ItemGroup>
+  <PackageReference Include="DotNetZip" Version="1.11.0" />
+</ItemGroup>
+</Project>

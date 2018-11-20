@@ -1,0 +1,179 @@
+This code was originally written on windows using c# .NET framework 4.6.2
+. This is a cut down port of project to .NET Core.
+
+
+IN browser https://code.visualstudio.com/Download 64bit rpm
+cd Downloads
+rpm -Uvh code-1.28.2-1539736121.el7.x86_64.rpm
+In browser
+https://dot.net/v1/dotnet-install.sh
+
+./dotnet-install.sh -c Current
+
+Creating executable
+dotnet new api -n agent_core
+
+Creating dll project
+dotnet new api -n agent_core
+
+Building on linux:
+dotnet publish -c Release -r linux-x64
+
+
+INstalling Coverage tool (coverlet)
+-------------------
+dotnet tool install --global coverlet.console
+Edit .bashrc export PATH=$PATH:/home/rmc-dev/.dotnet:/home/rmc-dev/.dotnet/tools
+
+
+
+PORTING ISSUES:
+------------------
+
+RMC-LANG >-> agent_lang
+--------------------------------------------------
+
+dotnet new classlib -n agent_lang
+
+2 sets of WCF specific class to get context and therefore language (
+https://stackoverflow.com/questions/14000528/httpcontext-vs-operationcontext-in-dataservice-with-http-headers
+Remove WebOpertationContext classes. Changed OperationContext classes to use HttpContext
+
+IE replaced System.ServiceModel.Web;
+
+WITH
+using Microsoft.AspNetCore.Http;
+
+In English.Designer.cs had to change RMC_Lang to agent_lang;
+
+KNOWN_ISSUE: Editing English.resx does not generate English.Designer.cs. Localisation works differently for .NET Core. Code works and runs but have 
+to edit English.Designer.cs when adding strings. Tried adding code generation tags in csproj but build process complaiend saying resx to designer genration is automatic and these tags not needed! NEED MORE INVESTIGATION ....
+INVESTIGATION-RESULTS-Actually most of English.Designer.cs contains APIS to get strings directly which are never used. RESX files ARE AUTOMATICALLY COMPILED AND EMBEDDED SO THERE IS NO NEED TO REGENERATE English.Designer.cs
+
+--------------------------------------------------
+
+RMC-LANG_TEST - _ agent_lang_test
+--------------------------------------------------
+dotnet new mstest -n agent_lang_test
+
+https://dotnetthoughts.net/code-coverage-in-netcore-with-coverlet/
+
+Added this to project:
+
+<ProjectReference Include="../agent_lang/agent_lang.csproj">
+      <Name>agent_lang</Name>
+    </ProjectReference>
+
+The following line adds coverage to the project by updating csproj file
+dotnet add package coverlet.msbuild
+dotnet add package ReportGenerator --version 4.0.0
+dotnet test   - ALL TESTS RUN and pass
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -- All tests pass with coverage printed
+dotnet ~/.nuget/packages/reportgenerator/4.0.0/tools/netcoreapp2.0/ReportGenerator.dll -reports:./coverage.opencover.xml -targetdir:./Reports   --- View coverage
+
+
+
+RMC-LIB >-> agent_lib
+--------------------------------------------------
+
+dotnet new classlib -n agent_lib
+dotnet add package Newtonsoft.Json.
+
+
+Microsoft.Win32.Registry - replaced with json config file
+Event.cs - removed code to write to windows event log. NEver rweall use
+
+1.) Port unity to use dryioc https://bitbucket.org/dadhi/dryioc/wiki/Home
+ dotnet add package DryIoc.
+-----
+using DryIoc;
+UnityContainer->Container
+IUnityContainer->IContainer
+RegisterType->Register
+-------
+DryIoc dosn't work on .netCore2.1
+/home/rmc-dev/.nuget/packages/dryioc/3.0.2/contentFiles/cs/netstandard2.0/DryIoc/Container.cs(1982,46): error CS0104: 'HashCode' is an ambiguous reference between 'ImTools.HashCode' and 'System.HashCode' [/home/rmc-dev/Dev/hackathon/agent_lib/agent_lib.csproj]
+/home/rmc-dev/.nuget/packages/dryioc/3.0.2/contentFiles/cs/netstandard2.0/DryIoc/Container.cs(6037,25): error CS0104: 'HashCode' is an ambiguous reference between 'ImTools.HashCode' and 'System.HashCode' [/home/rmc-dev/Dev/hackathon/agent_lib/agent_lib.csproj]
+
+1.b)Port unity to use AutoFac  
+ dotnet add package AutoFac
+https://autofaccn.readthedocs.io/en/latest/getting-started/
+-----
+using AutoFac;
+UnityContainer->ContainerBuilder
+IUnityContainer-> No equivalent
+RegisterType->RegisterType - syntax change
+-------
+.
+
+2.) Remove PowershellWrapper
+3.) Change HttpWrapper contructor
+4.) Remove powershell wrappers ; -TODO
+5.) Remove ServiceController () - GetWindoqws services . not used
+6.) Remove WIndows Impersonation
+7.) Remove UserProfiile - gets info about user
+8.) Rename RmcRegistration to CryptographyWrapper since RMC registration itself- no longer needed
+
+
+
+
+RMC-rest_LIB >-> agent_rest_lib
+--------------------------------------------------
+
+dotnet new classlib -n agent_rest_lib
+dotnet add package DotNetZip --version 1.11.0
+dotnet add package UriTemplate.Core --version 1.0.2
+
+WebAuthentication.cs - Remove this and provide a stub
+[System.Runtime.InteropServices.DllImport("advapi32.dll")]
+[return: MarshalAs(UnmanagedType.Bool)]
+public static extern bool LogonUser(string userName, string domainName, string password, int LogonType, int LogonProvider, ref IntPtr phToken);
+
+
+Zip.cs - had to make minot modififications to work with slightly different version of DoTNetZip
+
+APIPLuglin now inherits from Controller AspNEt so we can set response code:
+
+this.HttpContext.Response.StatusCode = (int) System.Net.HttpStatusCode.Accepted;
+
+RMC-rest_server >-> agent_core
+--------------------------------------------------
+
+NB Removed IWebService and WebService but moved alot of code over from Webservice into RootConroller.cs
+Booptrapped RootController from Startup.cs
+
+From debugger plugin path is :
+/home/rmc-dev/Dev/hackathon/agent_core/bin/Debug/netcoreapp2.1
+
+
+RMC_test_plugin -> agent core_test_plugin
+--------------------------------------------
+dotnet new classlib -n agent_test_plugin
+NOTE top level classname must have same name as assemble name IE agent_test_plugin
+
+
+rmc-rest_test -> agent_core_test
+---------------------------------
+dotnet add package Moq
+
+TIPS and TRICKS
+-------------------
+1.) Top of csproj defines type of app eg <Project Sdk="Microsoft.NET.Sdk"> means class library, <Project Sdk="Microsoft.NET.Sdk.Web"> means web app
+This depends on what argument you used to create the app. eg dotnet new classlib -n agent_lang 
+2.) Add refs by ItemGroup and TargetFramework as build target.
+NOTE:!!!! dotnet new write wrong targetframework should be netcoreapp2.1
+
+<PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
+  </ItemGroup>
+
+3.) Which .net core version do i have?
+ dotnet --list-runtimes
+
+4.)Running invidual tests
+dotnet test --filter "FullyQualifiedName=Kge.Agent.Rest.Test.UT_APIManager.TestCallGetAPI"
+ 
+
